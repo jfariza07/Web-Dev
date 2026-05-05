@@ -1,0 +1,13 @@
+<div class="wrap">
+  <h2>Categories</h2>
+
+  <div class="list">
+    <a
+      class="item"
+      *ngFor="let c of categories"
+      [routerLink]="['/category', c.id]"
+    >
+      {{ c.name }}
+    </a>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<!-- 左上角按钮 -->
+<div class="menu-btn" (click)="toggleMenu()">☰</div>
+
+<!-- 遮罩（点击关闭） -->
+<div class="overlay" *ngIf="isOpen" (click)="toggleMenu()"></div>
+
+<!-- 左侧菜单 -->
+<div id="sidebar" class="menu-sidebar" [class.open]="isOpen">
+  <a href="https://www.ctrip.com/" target="_blank">Map</a>
+  <a href="https://trains.ctrip.com/" target="_blank">High-Speed Rail</a>
+  <a href="https://flights.ctrip.com/" target="_blank">Flights</a>
+  <a href="https://hotels.ctrip.com/" target="_blank">Hotels</a>
+  <a href="https://www.ctrip.com/" target="_blank">Taxi</a>
+  <a href="https://trains.ctrip.com/" target="_blank">Train</a>
+  <a href="https://www.ctrip.com/" target="_blank">Ferry</a>
+</div>
+
+<!-- 页面内容 -->
+<router-outlet></router-outlet>

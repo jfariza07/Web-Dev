@@ -1,0 +1,143 @@
+<div class="city-container">
+
+  <!-- 顶部 -->
+  <div class="hero">
+    <h1>{{ cityName | titlecase }}</h1>
+    <p>Discover the beauty, culture, and taste</p>
+  </div>
+
+  <!-- 介绍 -->
+  <div class="section">
+    <h2>About</h2>
+    <p>
+      {{ cityName | titlecase }} is one of the most famous cities in China,
+      known for its culture, history, and amazing food.
+    </p>
+  </div>
+
+  <!-- 景点 -->
+  <div class="section">
+    <h2>Top Attractions</h2>
+    <div class="grid">
+
+      <div class="box">
+        <img src="https://images.unsplash.com/photo-1548013146-72479768bada">
+        <p>Historic Place</p>
+      </div>
+
+      <div class="box">
+        <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad">
+        <p>City Skyline</p>
+      </div>
+
+      <div class="box">
+        <img src="https://images.unsplash.com/photo-1583500178690-f7c8d3a8b02c">
+        <p>Local Culture</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 美食 -->
+  <div class="section">
+    <h2>Local Food</h2>
+    <div class="grid">
+
+      <div class="box" *ngFor="let food of foods">
+        <img [src]="food.img">
+        <p>{{ food.name }}</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 酒店 -->
+  <div class="section">
+    <h2>Hotels</h2>
+
+    <div class="hotel-card" *ngFor="let hotel of hotels">
+
+      <!-- 图片 -->
+      <div class="hotel-img">
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945">
+      </div>
+
+      <!-- 信息 -->
+      <div class="hotel-info">
+        <h3>{{ hotel.name }}</h3>
+
+        <p class="address">📍 {{ hotel.address }}</p>
+
+        <div class="tags">
+          <span class="price">💰 {{ hotel.price }}</span>
+          <span class="stars">⭐ {{ hotel.stars }} Stars</span>
+        </div>
+
+        <p *ngIf="hotel.available" class="available">✔ Available</p>
+        <p *ngIf="!hotel.available" class="not-available">✖ Full</p>
+
+        <p class="contact">📞 {{ hotel.contact }}</p>
+      </div>
+
+      <!-- 按钮 -->
+      <div class="hotel-actions">
+        <button *ngIf="hotel.available"
+                class="book-btn"
+                (click)="openBooking(hotel)">
+          Book Now
+        </button>
+
+        <button class="pay-btn"
+                (click)="openBooking(hotel)">
+          Pay
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ✅ 弹窗（必须放这里！！！） -->
+  <div class="popup" *ngIf="showBooking">
+    <div class="popup-content">
+
+      <h2>Booking</h2>
+      <p>{{ selectedHotel?.name }}</p>
+
+      <label>Guests:</label>
+      <input type="number" [(ngModel)]="guests">
+
+      <label>Room:</label>
+      <select [(ngModel)]="roomType">
+        <option>Standard</option>
+        <option>Deluxe</option>
+        <option>Suite</option>
+      </select>
+
+      <br><br>
+
+      <button (click)="goToPayment()" class="book-btn">Continue</button>
+      <button (click)="closeBooking()">Cancel</button>
+
+    </div>
+  </div>
+
+  <!-- ✅ Payment 弹窗（必须放外面！） -->
+  <div class="popup" *ngIf="showPayment">
+    <div class="popup-content">
+
+      <h2>Payment</h2>
+
+      <button (click)="pay('Bank Card')">💳 Bank Card</button>
+      <input placeholder="Enter Card Number">
+
+      <button (click)="pay('Alipay')">🟦 Alipay</button>
+      <button (click)="pay('WeChat Pay')">🟩 WeChat Pay</button>
+
+      <br><br>
+
+      <button (click)="closePayment()">Cancel</button>
+
+    </div>
+  </div>
+
+</div>

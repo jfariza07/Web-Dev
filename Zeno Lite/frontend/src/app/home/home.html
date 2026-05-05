@@ -1,0 +1,99 @@
+<div class="container">
+
+  <!-- 左上角按钮 -->
+  <div class="menu-btn" (click)="toggleMenu()">☰</div>
+
+  <!-- 菜单遮罩 -->
+  <div class="menu-overlay" *ngIf="isOpen" (click)="toggleMenu()"></div>
+
+  <!-- 左侧菜单 -->
+  <div id="sidebar" class="menu-sidebar" [class.open]="isOpen">
+    <a routerLink="/">🏠 Home</a>
+    <a href="https://www.amap.com/" target="_blank">Map</a>
+    <a href="https://trains.ctrip.com/" target="_blank">High-Speed Rail</a>
+    <a href="https://flights.ctrip.com/" target="_blank">Flights</a>
+    <a href="https://hotels.ctrip.com/" target="_blank">Hotels</a>
+    <a href="https://www.didiglobal.com/" target="_blank">Taxi</a>
+    <a href="https://trains.ctrip.com/" target="_blank">Train</a>
+    <a href="https://www.ctrip.com/" target="_blank">Ferry</a>
+  </div>
+
+  <!-- 头部 -->
+  <div class="header">
+    <h1>China Travel Guide</h1>
+    <p>Explore cities, food, and culture</p>
+  </div>
+
+  <div class="main">
+
+    <!-- 左边内容 -->
+    <div class="content">
+
+      <h2>Popular Cities</h2>
+
+      <div class="cards">
+
+        <div class="card beijing" [routerLink]="['/city','beijing']">
+            <div class="card-overlay">Beijing</div>
+        </div>
+
+        <div class="card shanghai" [routerLink]="['/city','shanghai']">
+            <div class="card-overlay">Shanghai</div>
+        </div>
+
+        <div class="card chengdu" [routerLink]="['/city','chengdu']">
+            <div class="card-overlay">Chengdu</div>
+        </div>
+
+        <div class="card guangzhou" [routerLink]="['/city','guangzhou']">
+            <div class="card-overlay">Guangzhou</div>
+        </div>
+
+        <div class="card xian" [routerLink]="['/city','xian']">
+            <div class="card-overlay">Xi'an</div>
+        </div>
+
+        <div class="card hangzhou" [routerLink]="['/city','hangzhou']">
+            <div class="card-overlay">Hangzhou</div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="right-sidebar">
+
+  <!-- Account 卡片 -->
+  <div class="card-box">
+    <h3>Account</h3>
+    <button class="login-btn" routerLink="/login">Login</button>
+  </div>
+
+  <!-- Travel Tips -->
+  <div class="card-box">
+    <h3>Travel Tips</h3>
+    <ul>
+      <li>Best time to visit: Spring & Autumn</li>
+      <li>Use mobile payment (WeChat / Alipay)</li>
+      <li>Try local street food 🍜</li>
+    </ul>
+  </div>
+
+  <!-- Popular Info -->
+  <div class="card-box">
+    <h3>Popular Destinations</h3>
+    <p>Beijing - History</p>
+    <p>Shanghai - Modern city</p>
+    <p>Chengdu - Food & pandas 🐼</p>
+  </div>
+
+  <!-- Contact -->
+  <div class="card-box">
+    <h3>Contact</h3>
+    <p>Email: fariza_jek@icloud.com</p>
+    <p>Phone: +86 15299291951</p>
+  </div>
+
+</div>
+
+</div>

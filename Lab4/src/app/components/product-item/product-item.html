@@ -1,0 +1,32 @@
+<div class="product-card">
+  <div class="gallery-container">
+    <button class="nav-btn prev" (click)="prevImage()">❮</button>
+    <img [src]="product().images[currentImageIndex()]" [alt]="product().name" class="main-image">
+    <button class="nav-btn next" (click)="nextImage()">❯</button>
+  </div>
+
+  <div class="thumbnails">
+    @for (img of product().images; track $index) {
+      <img [src]="img" 
+           [class.active]="$index === currentImageIndex()" 
+           (click)="setCurrentImage($index)" 
+           class="thumb">
+    }
+  </div>
+  
+  <h3>{{ product().name }}</h3>
+  <p class="description">{{ product().description }}</p>
+  
+  <div class="product-info">
+    <span class="price">{{ product().price }} KZT</span>
+    <span class="rating">⭐ {{ product().rating }}</span>
+  </div>
+
+  <div class="actions">
+    <a [href]="product().link" target="_blank" class="buy-button">View on Kaspi</a>
+    <div class="share-buttons">
+      <button (click)="shareOnWhatsApp()">WhatsApp</button>
+      <button (click)="shareOnTelegram()">Telegram</button>
+    </div>
+  </div>
+</div>
