@@ -1,0 +1,31 @@
+<header style="text-align: center; padding: 20px; background-color: #f8f9fa;">
+  <h1>Kaspi Store</h1>
+</header>
+
+<nav style="display: flex; justify-content: center; gap: 10px; padding: 20px;">
+  @for (cat of categories; track cat.id) {
+    <button 
+      (click)="selectCategory(cat)"
+      [style.background-color]="selectedCategory?.id === cat.id ? '#ee1111' : '#ffffff'"
+      [style.color]="selectedCategory?.id === cat.id ? '#ffffff' : '#000000'"
+      style="padding: 10px 20px; cursor: pointer; border: 1px solid #ddd; border-radius: 4px; font-weight: bold;">
+      {{ cat.name }}
+    </button>
+  }
+</nav>
+
+<main style="padding: 20px;">
+  @if (selectedCategory) {
+    <h2 style="text-align: center; margin-bottom: 20px;">
+      Category: {{ selectedCategory.name }}
+    </h2>
+    
+    <app-product-list [products]="getFilteredProducts()"></app-product-list>
+    
+  } @else {
+    <div style="text-align: center; margin-top: 50px; color: #666;">
+      <h3>Welcome to our Store!</h3>
+      <p>Please select a category above to see the products.</p>
+    </div>
+  }
+</main>

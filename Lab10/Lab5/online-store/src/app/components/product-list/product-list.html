@@ -1,0 +1,10 @@
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;">
+  @for (item of products(); track item.id) {
+    <app-product-item 
+      [product]="item" 
+      (remove)="removeProduct($event)">
+    </app-product-item>
+  } @empty {
+    <p style="text-align: center; grid-column: 1/-1;">No products found in this category.</p>
+  }
+</div>

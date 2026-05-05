@@ -1,0 +1,232 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: #111827;
+}
+
+.wrap {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 56px 20px 80px;
+}
+
+.muted {
+  color: #6b7280;
+}
+
+.hero {
+  text-align: center;
+  padding: 20px 0 36px;
+}
+
+.hero h1 {
+  margin: 0 0 12px;
+  font-size: clamp(28px, 4vw, 44px);
+  letter-spacing: -0.6px;
+}
+
+.hero p {
+  margin: 0 auto 18px;
+  max-width: 720px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  border: 1px solid transparent;
+}
+
+.btn-dark {
+  background: #111827;
+  color: #ffffff;
+}
+
+.btn-dark:hover {
+  background: #0b1220;
+}
+
+.btn-light {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.btn-light:hover {
+  background: #e5e7eb;
+}
+
+.btn-outline {
+  background: transparent;
+  color: #111827;
+  border-color: #d1d5db;
+}
+
+.btn-outline:hover {
+  background: #f9fafb;
+}
+
+.tiers {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+}
+
+.card-top h2 {
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+
+.card-top p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.money {
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.per {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.list {
+  margin: 0;
+  padding-left: 18px;
+  color: #111827;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.card a.btn {
+  margin-top: auto;
+}
+
+.card-highlight {
+  border-color: #2563eb;
+  box-shadow: 0 16px 40px rgba(37,99,235,0.18);
+}
+
+.badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.actions {
+  margin-top: auto;
+  display: grid;
+  gap: 10px;
+}
+
+.addons {
+  margin-top: 44px;
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.section-head h2 {
+  margin: 0 0 8px;
+  font-size: 24px;
+}
+
+.section-head p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.addon {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 16px;
+  background: #ffffff;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 150px;
+}
+
+.addon h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.addon p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.link {
+  margin-top: auto;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  color: #2563eb;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .tiers {
+    grid-template-columns: 1fr;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,19 @@
+.main-container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #28a745 !important;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+}
+
+button:hover {
+  filter: brightness(90%);
+  transform: translateY(-2px);
+  transition: 0.2s;
+}

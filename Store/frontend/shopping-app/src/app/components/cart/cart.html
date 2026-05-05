@@ -1,0 +1,57 @@
+<div class="main-container" style="padding: 30px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  
+  <h2 style="border-bottom: 3px solid #28a745; padding-bottom: 15px; color: #333; font-weight: bold;">
+    <i class="fa fa-shopping-cart"></i> My Shopping Cart
+  </h2>
+
+  <div *ngIf="cartItems.length > 0">
+    <div *ngFor="let item of cartItems; let i = index" 
+         style="display: flex; justify-content: space-between; align-items: center; background: white; margin-bottom: 15px; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+      
+      <div style="flex: 1;">
+        <strong style="font-size: 1.2em; color: #2c3e50;">{{ item.name }}</strong>
+        <p style="color: #7f8c8d; margin: 8px 0;">{{ item.description }}</p>
+        <button (click)="removeItem(i)" 
+                style="color: #e74c3c; border: 1px solid #e74c3c; background: none; cursor: pointer; padding: 4px 10px; border-radius: 5px; font-size: 0.85em; transition: 0.3s;">
+          <i class="fa fa-trash"></i> Remove
+        </button>
+      </div>
+
+      <div style="color: #27ae60; font-weight: bold; font-size: 1.4em; min-width: 80px; text-align: right;">
+        ${{ item.price }}
+      </div>
+    </div>
+
+    <div style="margin-top: 30px; background: rgba(241, 242, 246, 0.8); padding: 20px; border-radius: 12px; border-left: 5px solid #28a745;">
+      <h3 style="margin-top: 0; color: #2f3542;">Order Details</h3>
+      
+      <div style="margin-bottom: 15px;">
+        <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #57606f;">Coupon Code:</label>
+        <input type="text" [(ngModel)]="couponCode" name="coupon" placeholder="Enter 'SAVE10'" 
+               style="width: 100%; padding: 12px; border: 1px solid #ced4da; border-radius: 8px; box-sizing: border-box;">
+      </div>
+
+      <div style="margin-bottom: 15px;">
+        <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #57606f;">Order Note:</label>
+        <textarea [(ngModel)]="orderNote" name="note" placeholder="Any special requests for your delivery?" 
+                  style="width: 100%; padding: 12px; border: 1px solid #ced4da; border-radius: 8px; height: 80px; box-sizing: border-box;"></textarea>
+      </div>
+    </div>
+
+    <div style="margin-top: 30px; text-align: right;">
+      <button (click)="checkout()" 
+              style="background: #28a745; color: white; border: none; padding: 15px 40px; border-radius: 30px; cursor: pointer; font-size: 1.1em; font-weight: bold; box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);">
+        Confirm and Pay
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="cartItems.length === 0" style="text-align: center; padding: 60px 0; color: #a4b0be;">
+    <i class="fa fa-shopping-basket" style="font-size: 4em; margin-bottom: 20px; display: block;"></i>
+    <p style="font-size: 1.2em;">Your cart is empty.</p>
+    <button (click)="this.router.navigate(['/'])" 
+            style="margin-top: 15px; cursor: pointer; color: #28a745; border: 2px solid #28a745; background: white; padding: 10px 25px; border-radius: 20px; font-weight: bold;">
+      Go Shopping
+    </button>
+  </div>
+</div>

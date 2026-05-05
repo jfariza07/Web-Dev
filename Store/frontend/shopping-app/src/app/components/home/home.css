@@ -1,0 +1,34 @@
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.product-card {
+  background: white;
+  border-radius: 12px; /* 圆角 */
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* 柔和阴影 */
+  transition: transform 0.3s ease; /* 鼠标悬停动画 */
+}
+
+.product-card:hover {
+  transform: translateY(-5px); /* 悬停轻微浮起 */
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.product-card h3 {
+  color: #333;
+}
+
+.product-card button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}

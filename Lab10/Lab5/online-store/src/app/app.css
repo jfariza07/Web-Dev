@@ -1,0 +1,27 @@
+.category-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px;
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.category-btn {
+  padding: 10px 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.category-btn.active {
+  background: #ee1111;
+  color: white;
+  border-color: #ee1111;
+}
